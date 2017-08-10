@@ -1,7 +1,64 @@
+#wrapper {
+  margin: 20px;
+}
 
-/* -- SEARCH BOX --*/
-body {
-        /*background: #555*/ url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#results p {
+  font-family: sans-serif;
+}
+
+.recipeBox {
+  margin: 5px;
+  padding-bottom: 20px;
+  flex-basis: 250px;
+  background: white;
+  box-shadow: 5px 2px 2px grey;
+}
+
+h1, .recipeBox h2 {
+  font-family: sans-serif;
+  color: black;
+}
+
+.recipeBox h2 {
+  padding: 0 5px;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
+.recipeBox a {
+  text-decoration: none;
+  font-family: sans-serif;
+  background: yellow;
+  color: black;
+  padding: 5px;
+}
+
+.recipeBox a:hover {
+  color: #B20003;
+}
+
+form {
+  font-family: sans-serif;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.foodThumb {
+  width: 100%;
+}
+
+/* -- SEARCH BOX --
+/*body {
+        /*background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
         font: 13px 'Lucida sans', Arial, Helvetica;
         color: #eee;
         text-align: left;
@@ -11,7 +68,7 @@ body {
         color: #ccc;
     }
 
-    /*-------------------------------------*/
+    /*-------------------------------------
 
     .cf:before, .cf:after{
       content:"";
@@ -26,7 +83,7 @@ body {
       zoom:1;
     }
 
-    /*-------------------------------------*/
+    /*-------------------------------------
 
     .form-wrapper {
         width: 450px;
@@ -131,3 +188,5 @@ body {
         border: 0;
         padding: 0;
     }
+
+*/

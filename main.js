@@ -1,65 +1,53 @@
 //console.log("talking");
 
 
-	fetch("http://www.recipepuppy.com/api/")
+//	fetch("http://www.recipepuppy.com/api/?i=")
 
-	  .then(
-	    function(response) {
-	      if (response.status!==200) {
-	        console.log('Looks like there was a problem. Status Code: ' + response.status);
-	        return;
-	      }
+//	  .then(
+//	    function(response) {
+//	      if (response.status!==200) {
+//	        console.log('Looks like there was a problem. Status Code: ' + response.status);
+//	        return;
+//	      }
 
 
-      response.json().then(function(data) {
+//      response.json().then(function(data) {
 	        // console.log(data.results[0].name.first);
 
 
-    function myFunction() {
-      var x = document.getElementById("mySearch").placeholder;
-      document.getElementByID("demo").innerHTML = x;
-    }
-  }
-}
+let url = "http://recipepuppyproxy.herokuapp.com/api/?i=";
 
+	let button = document.querySelector("button");
+	button.addEventListener("click",submitSearch);
 
+	function submitSearch() {
+		let input = document.querySelector("#searchbox").value;
+		console.log(input);
+		fetch(url + input)
 
-//var a = document.getElementById('tfnewsearch');
-//    a.addEventListener('submit',function(e) {
-//        e.preventDefault();
-//        var b = document.getElementById('tftextinput').value;
-//        window.location.href = 'http://mywebsite.com/'+b;
+		.then(
+			function(response) {
+				if (response.status !==200) {
+					console.log('Looks like there was a problem. Status Code: ' + response.status);
+					return;
+				}
 
-//    });
-
-//const ul = document.getElementByID('authors');
-//const url = 'http://www.recipepuppy.com/api/';
-
-//function createNode(element) {
-//      return document.createElement(element);
-//  }
-
-//  function append(parent, el) {
-//    return parent.appendChild(el);
-//  }
-
-//  const ul = document.getElementById('recipes');
-//  const url = 'http://recipepuppyproxy.herokuapp.com/api/?i=onions,garlic&q=omelet&p=3';
-//  fetch(url)
-//  .then((resp) => resp.json())
-//  .then(function(data) {
-//    let recipes = data.results;
-//    return recipes.map(function(recipe_title) {
-//      let li = createNode('li'),
-//          img = createNode('img'),
-//          span = createNode('span');
-      //img.src = author.picture.medium;
-//      span.innerHTML = `${data.title}`;
-      //append(li, img);
-      //append(li, span);
-      //append(ul, li);
-//    })
-//  })
-//  .catch(function(error) {
-//    console.log(error);
-//  });
+				response.json().then(function(data) {
+					let results = document.getElementById("results");
+					results.innerHTML ='';
+					if (data.results.length===0) {
+						results.innerHTML += `<p>Sorry, your search did not return any results. Try again!</p>`
+					}
+					else {
+						data.results.map((recipe)=>{
+							results.innerHTML += `
+							<div class="recipeBox"><img class="foodThumb" src="${recipe.thumbnail}">
+							<h2>${recipe.title}</h2>
+							<a href="${results.href}">View Recipe</a></div>
+							`
+					 });
+					}
+					})
+				}
+			)
+		}
